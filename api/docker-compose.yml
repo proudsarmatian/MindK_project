@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "3004:8080"
+  db:
+    image: postgres
+    container_name: mindkdb
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+    volumes:
+      - /mindkdb.data
+    ports:
+      - "5432:5432"
+
